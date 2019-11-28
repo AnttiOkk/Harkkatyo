@@ -1,2 +1,0 @@
-# Harkkatyo
-Created with CodeSandbox
