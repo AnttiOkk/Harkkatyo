@@ -2,30 +2,16 @@
 var express = require("express");
 var router = express.Router();
 
-// Get the db instance
-var db = require("../db");
-
 // Good validation documentation available at https://express-validator.github.io/docs/
 const { sanitizeBody } = require("express-validator");
 
 // Get posts listing
 router.get("/", function(req, res, next) {
-  // Getting content from Mongo
-  // Collection first
+  // Retreiving the posts from the global var
+  var authors_and_posts = req.app.get("poststore");
 
-  db.get()
-    .collection("posts")
-    .find()
-    .limit(100)
-    .toArray()
-    .then(function(data) {
-      console.log(data);
-      res.render("posts", { title: "Post List", post_list: data });
-    })
-    .catch(error => {
-      console.log(error);
-    });
-  //Above is example of ES6 function def; it is functionally similar to the then function
+  // Just send the array of objects to the browser
+  res.render("posts", { title: "Post List", post_list: authors_and_posts });
 });
 
 // Sanitation middleware
@@ -42,16 +28,12 @@ router.post(
     console.log("We got content: " + local_content);
     console.log("from author: " + local_author);
 
-    db.get()
-      .collection("posts")
-      .insertOne({ content: local_content, author: local_author })
-      .then(function() {
-        console.log("Inserted 1 object");
-        res.redirect("/posts");
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    req.app.get("poststore").push({
+      author: local_author,
+      content: local_content
+    });
+
+    res.redirect("/posts");
   }
 );
 
