@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  SyntaxError: /sandbox/package.json: Unexpected string in JSON at position 477
+  SyntaxError: /sandbox/package.json: Unexpected token / in JSON at position 221
       at JSON.parse (<anonymous>)
       at /opt/yarn-v1.16.0/lib/cli.js:1625:59
       at Generator.next (<anonymous>)
@@ -24,10 +24,11 @@ Trace:
 npm manifest: 
   {
     "name": "ht_web_applications",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "private": true,
     "scripts": {
-      "start": "nodemon ./start/www.js"
+      "scripts": {"start": "./node_modules/parcel-bundler/bin/cli.js index.html --port 8080","build": "parcel build index.html"
+      //"start": "nodemon ./start/www.js"
     },
     "dependencies": {
       "cookie-parser": "~1.4.4",
@@ -45,8 +46,6 @@ npm manifest:
     "keywords": [],
     "description": ""
   }
-  
-  "scripts": {"start": "./node_modules/parcel-bundler/bin/cli.js index.html --port 8080","build": "parcel build index.html"},
 
 yarn manifest: 
   No manifest
