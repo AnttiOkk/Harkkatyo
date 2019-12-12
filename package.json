@@ -1,6 +1,6 @@
 {
   "name": "ht_web_applications",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "nodemon ./start/www.js"
