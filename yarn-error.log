@@ -39,9 +39,9 @@ npm manifest:
       "materialize-css": "1.0.0",
       "morgan": "~1.9.1",
       "pug": "2.0.0-beta11"
-    },
+    /*},
     "devDependencies": {
-      "nodemon": "1.18.4"
+      "nodemon": "1.18.4"*/
     },
     "keywords": [],
     "description": ""
