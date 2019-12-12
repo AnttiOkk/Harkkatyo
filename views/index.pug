@@ -1,5 +1,11 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h3 Etusivu
+
+  a Käyttäjän #{User} omat postaukset:
+    ul
+  each post in post_list
+    li #{post.author}: #{post.content}
+
+

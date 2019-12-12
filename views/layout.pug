@@ -1,7 +1,33 @@
 doctype html
 html
   head
-    title= title
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    title= title 
     link(rel='stylesheet', href='/stylesheets/style.css')
+
+    
+  
+  block head
+
+      nav
+        div(class="nav-wrapper blue darken-4")
+            ul(class="nav-wrapper blue darken-4" id="mobile-demo")
+              li
+                a(class='btn-medium indigo', href='/') Etusivu
+              li
+                a(class='btn-medium purple', href='/register') Vaihda käyttäjää
+              li
+                a(class='btn-medium pink', href='/posts') Selaa Muiden Postauksia
+              li
+                a(class='btn-medium green')= nameFromCookie
+
   body
     block content
+
+

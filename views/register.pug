@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h3.display-4.m-b-2 Kirjaudu sisään
+
+  form(method='POST' action='/register/login')
+            div.form-group
+              label(for='username') Käyttäjänimesi:
+              input#name.form-control(type='text', placeholder='Käyttäjänimesi' name='username')
+
+            div.form-group
+              label(for='password') Salasanasi:
+              input#name.form-control(type='password', placeholder='Salasanasi' name='password')
+            button.btn.btn-primary(type='submit') Kirjaudu sisään
+
+  h3.display-4.m-b-2 Rekisteröidy Uutena Käyttäjänä
+
+  form(method='POST' action='/register/register')
+            div.form-group
+              label(for='username') Käyttäjänimesi:
+              input#name.form-control(type='text', placeholder='Käyttäjänimesi' name='username')
+
+            div.form-group
+              label(for='password') Salasanasi:
+              input#name.form-control(type='password', placeholder='Salasanasi' name='password')
+            button.btn.btn-primary(type='submit') Rekisteröidy
+  

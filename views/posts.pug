@@ -1,21 +1,24 @@
 extends layout
 
 block content
-  h1= title
+  h3 Kaikki Postaukset
 
   ul
   each post in post_list
     li #{post.author}: #{post.content}
 
   else
-    li There are no posts yet.
+    h6 Muut eivät ole vielä postanneet mitään :/
 
-  h2 Submit New Post
+  h3 Tee Uusi Postaus
   form(method='POST' action='/posts/create')
             div.form-group
-              label(for='name') Name:
-              input#name.form-control(type='text', placeholder='Your name' name='author')
+
+              label(for='name') Käyttäjänimesi:
+              input#name.form-control(value=User, type='text', placeholder='Nimesi' name='author')
+  
             div.form-group
-              label(for='content') Post text:
-              input#content.form-control(type='text' name='content')
-            button.btn.btn-primary(type='submit') Submit new post
+              label(for='content') Postattava tekstisi:  
+              input#content.form-control(type='text',placeholder='Tekstisi' name='content')
+            button.btn.btn-primary(type='submit') Postaa kirjotus
+

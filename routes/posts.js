@@ -10,8 +10,16 @@ router.get("/", function(req, res, next) {
   // Retreiving the posts from the global var
   var authors_and_posts = req.app.get("poststore");
 
+  let user = cookieSplit(req.headers.cookie);
+  let text = "Kirjautunut sisään käyttäjällä: " + user;
+
   // Just send the array of objects to the browser
-  res.render("posts", { title: "Post List", post_list: authors_and_posts });
+  res.render("posts", {
+    nameFromCookie: text,
+    User: user,
+    title: "Post List",
+    post_list: authors_and_posts.filter(posts => posts.author !== user)
+  });
 });
 
 // Sanitation middleware
@@ -36,5 +44,18 @@ router.post(
     res.redirect("/posts");
   }
 );
+function cookieSplit(cookie) {
+  if (cookie != null) {
+    cookie = cookie.split("; ");
+    for (let i = 0; i < cookie.length; i++) {
+      let data = cookie[i];
+      let Data = data.split("=");
+      if (Data[0] === "user") {
+        return Data[1];
+      }
+    }
+  }
+  return null;
+}
 
 module.exports = router;

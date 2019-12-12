@@ -8,6 +8,7 @@ var logger = require("morgan");
 // Include external files (edit as required)
 var indexRouter = require("./routes/index");
 var postsRouter = require("./routes/posts");
+var registerRouter = require("./routes/register");
 
 // Start the app itself - default
 var app = express();
@@ -26,9 +27,17 @@ app.use(express.static(path.join(__dirname, "public")));
 // Define routes (edit as required)
 app.use("/", indexRouter);
 app.use("/posts", postsRouter);
+app.use("/register", registerRouter);
 
 // Setting up a global var for data storage - this is extremely poor and hacky way, but works
 app.set("poststore", []);
+
+// Global var for users
+app.set("userstore", []);
+app.get("userstore").push({
+  username: "Matti",
+  password: "12345"
+});
 
 // Catch 404 and forward to error handler - default
 app.use(function(req, res, next) {
