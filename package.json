@@ -1,10 +1,10 @@
 {
   "name": "ht-web-applications",
+  "homepage": "https://github.com/AnttiOkk/Harkkatyo",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "./node_modules/parcel-bundler/bin/cli.js index.html --port 8080",
-    "build": "parcel build index.html"
+    "start": "nodemon ./start/www.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -17,7 +17,7 @@
     "pug": "2.0.0-beta11"
   },
   "devDependencies": {
-    "nodemon": "1.18.4"
+    "nodemon": "2.0.2"
   },
   "keywords": [],
   "description": ""
