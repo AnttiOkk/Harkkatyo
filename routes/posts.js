@@ -41,7 +41,7 @@ router.post(
       content: local_content
     });
 
-    res.redirect("/posts");
+    res.redirect("/");
   }
 );
 function cookieSplit(cookie) {
