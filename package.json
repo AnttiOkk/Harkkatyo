@@ -1,18 +1,19 @@
 {
   "name": "ht-web-applications",
-  "homepage": "https://github.com/AnttiOkk/Harkkatyo",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./server.js localhost 8080"
+    "start": "node ./start/www.js",
+    "devstart": "nodemon ./start/www.js"
   },
   "dependencies": {
+    "bluebird": "3.7.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "express-validator": "6.2.0",
     "http-errors": "~1.6.3",
-    "materialize-css": "1.0.0",
+    "mongodb": "3.3.4",
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11"
   },
